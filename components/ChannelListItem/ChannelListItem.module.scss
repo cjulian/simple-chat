@@ -1,0 +1,17 @@
+.channel {
+  list-style-type: none;
+  padding: 8px 20px;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.04);
+    cursor: pointer;
+
+    &.selected {
+      background-color: rgba(0,0,0,0.1);
+    }
+  }
+}
+
+.selected {
+  background-color: rgba(0,0,0,0.08);
+}
