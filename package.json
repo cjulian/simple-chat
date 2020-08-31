@@ -1,0 +1,64 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "a simple react based chat UI",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "lint": "semistandard",
+    "lint-fix": "semistandard --fix",
+    "start": "next start",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjulian/simple-chat.git"
+  },
+  "author": "Carlo Julian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjulian/simple-chat/issues"
+  },
+  "homepage": "https://github.com/cjulian/simple-chat#readme",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "next": "^9.5.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.10"
+  },
+  "devDependencies": {
+    "babel-jest": "^26.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.4.2",
+    "semistandard": "^14.2.3"
+  },
+  "semistandard": {
+    "env": {
+      "browser": true,
+      "jest": true
+    }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "resetMocks": false,
+    "resetModules": false,
+    "setupFilesAfterEnv": [
+      "<rootDir>/test-setup.js"
+    ],
+    "testEnvironment": "jsdom",
+    "verbose": true
+  }
+}
