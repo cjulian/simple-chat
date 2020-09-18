@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "lint": "semistandard",
-    "lint-fix": "semistandard --fix",
+    "lint": "eslint . --ext .jsx,.js",
+    "lint-fix": "eslint . --ext .jsx,.js --fix",
     "start": "next start",
     "test": "jest"
   },
@@ -38,10 +38,18 @@
     "babel-jest": "^26.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
+    "eslint": "^7.9.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.4.2",
-    "semistandard": "^14.2.3"
+    "jest": "^26.4.2"
   },
   "semistandard": {
     "env": {

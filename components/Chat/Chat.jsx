@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ChannelList from '../ChannelList/ChannelList';
 import ChannelHistory from '../ChannelHistory/ChannelHistory';
@@ -10,12 +10,15 @@ function Chat ({ getChannels, getChannelHistory, sendMessage }) {
   const [channel, setChannel] = useState(null);
   const [history, setHistory] = useState([]);
 
-  const updateHistory = async () => {
-    if (channel) {
-      const history = await getChannelHistory(channel.id);
-      setHistory(history);
-    }
-  };
+  const updateHistory = useCallback(
+    async () => {
+      if (channel) {
+        const history = await getChannelHistory(channel.id);
+        setHistory(history);
+      }
+    },
+    [channel, getChannelHistory]
+  );
 
   const send = async (message) => {
     await sendMessage(message, channel.id);
@@ -28,9 +31,9 @@ function Chat ({ getChannels, getChannelHistory, sendMessage }) {
       setChannels(fetchedChannels);
       setChannel(fetchedChannels[0]);
     })();
-  }, []);
+  }, [getChannels]);
 
-  useEffect(() => { updateHistory(); }, [channel]);
+  useEffect(() => { updateHistory(); }, [channel, updateHistory]);
 
   return (
     <div className={styles.chat}>
